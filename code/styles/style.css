@@ -4863,11 +4863,11 @@ button:active {
   left: 0px !important;
   transform: translateX(30px);
   position: absolute;
-  top: -12px;
+  top: -22px;
   height: 10px;
   font-size: 10px;
   transition: all 150ms ease;
-  background-color: #FFF;
+  /*background-color: #FFF;*/
 }
 
 .input-style-active label {
@@ -4994,7 +4994,7 @@ button:active {
   height: 23px;
   font-size: 12px;
   transition: all 250ms ease;
-  background-color: #FFF;
+  /*background-color: #FFF;*/
 }
 
 .input-style.has-borders.input-style-always-active label {
@@ -5007,7 +5007,7 @@ button:active {
   height: 23px;
   font-size: 12px;
   transition: all 250ms ease;
-  background-color: #FFF;
+  /*background-color: #FFF; */
 }
 
 /*Remove Number Arrows*/
