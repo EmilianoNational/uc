@@ -50,15 +50,21 @@
                 <p class="color-black" style="font-size: 14px">
                     En este apartado podrás revisar la activación, validez o vigencia de tu tarjeta Unity Card.
                 </p>
-                <div class="card card-style mb-3 ms-0 me-0 bg-white">
-                    <div class="content">
-                        <div class="input-style input-style-always-active has-borders no-icon validate-field my-4">
-                            <input type="text" class="form-control validate-name" id="num_tarjeta" placeholder="Ingrese el número de la tarjeta">
-                            <label for="num_tarjeta" class="color-highlight" style="font-size: 14px">Tarjeta:</label>
-                            <i class="fa fa-times disabled invalid color-red-dark"></i>
-                            <i class="fa fa-check disabled valid color-green-dark"></i>
+                <div>
+                    <div class="content" style="display: flex; align-items: center; gap: 15px; margin-bottom: 0;">
+                        <div>
+                            <label for="num_tarjeta" class="color-black" style="font-size: 20px">Tarjeta:</label>
                         </div>
-                        <p style="text-align: center;" style="font-size: 14px">Tarjeta NO válida</p>
+                        <div class="input-style input-style-always-active has-borders no-icon validate-field my-4" style="width: 100%;">
+                            <input type="text" class="form-control validate-name" id="num_tarjeta" placeholder="Ingrese el número de la tarjeta">
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-6">
+                            <div class="input-style input-style-always-active has-borders no-icon validate-field my-4" style="width: 100%;">
+                                <input type="text" class="form-control validate-name bg-success color-white" id="num_tarjeta">
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -72,7 +78,7 @@
 
         <!-- footer and footer card-->
         <!-- <div class="footer" data-menu-load="menu-footer.html"></div>   -->
-        <div class="footer" style="display: flex; justify-content: space-between; padding: 60px 30px 0;">
+        <div class="footer" style="display: flex; justify-content: space-between; padding: 40px 30px 15px;">
             <span>
               <a style="color: #000;" href="https://www.nationalunity.com/wp-content/uploads/2022/08/privacynu.pdf" target="_blank" rel="noopener">Política de privacidad</a>
             </span>
