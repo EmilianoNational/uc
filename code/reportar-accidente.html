@@ -77,7 +77,7 @@
                 </ol>
                 <div style="display: flex; gap: 10px; flex-direction: column;">
                     <div class="card card-style mb-3 ms-0 me-0 bg-white">
-                        <div class="content" style="display: flex; justify-content: space-around;" onclick="noCostUSA()">
+                        <div class="content" style="display: flex; justify-content: space-around;" onclick="noCostUSAReport()">
                             <button >
                                 <img src="../assets/phone.png" alt="phone" width="64" height="64">
                             </button>
@@ -87,7 +87,7 @@
                         </div>
                     </div>
                     <div class="card card-style mb-3 ms-0 me-0 bg-white">
-                        <div class="content" style="display: flex; justify-content: space-around;" onclick="directUSA()">
+                        <div class="content" style="display: flex; justify-content: space-around;" onclick="directUSAReport()">
                             <button >
                                 <img src="../assets/phone.png" alt="phone" width="64" height="64">
                             </button>
@@ -97,7 +97,7 @@
                         </div>
                     </div>
                     <div class="card card-style mb-3 ms-0 me-0 bg-white">
-                        <div class="content" style="display: flex; justify-content: space-around;" onclick="fromMexico()">
+                        <div class="content" style="display: flex; justify-content: space-around;" onclick="fromMexicoReport()">
                             <button>
                                 <img src="../assets/phone.png" alt="phone" width="64" height="64">
                             </button>
@@ -110,7 +110,7 @@
 
                 <div class="accordion mt-4 mb-4" id="accordion-2">
                     <div class="card card-style shadow-0 bg-highlight mb-1 border-white" style="background-color: #fff;">
-                        <a href="https://www.nationalunity.com/national/reporte_accidente/package/html/main/">
+                        <a href="https://www.nationalunity.com/national/reporte_accidente/package/html/main/" target="_blank">
                             <button class="btn accordion-btn color-white no-effect collapsed" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false">
                                 Reportar accidente en línea
                             </button>
@@ -205,14 +205,14 @@
     
 </div>    
 
-<script>
-    function noCostUSA() {
+<script type="text/javascript">
+    function noCostUSAReport() {
       window.location.href = 'tel:+18663296734'; // Cambia el número por el que desees
     }
-    function directUSA() {
+    function directUSAReport() {
       window.location.href = 'tel:+5128610992'; // Cambia el número por el que desees
     }
-    function fromMexico() {
+    function fromMexicoReport() {
       window.location.href = 'tel:+0018833296734'; // Cambia el número por el que desees
     }
 </script>
