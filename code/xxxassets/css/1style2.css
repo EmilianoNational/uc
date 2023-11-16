@@ -1,0 +1,666 @@
+body {
+    background-color: #F8F8F8;
+    /* font-family: Majorant; */
+}
+
+
+@font-face {
+    font-family: 'CircularStdBold';
+    src: url('../fonts/Circular/CircularStd-Bold.otf');
+    /* format("truetype"); */
+    /* font-weight: normal;
+    font-style: normal; */
+}
+
+@font-face {
+    font-family: 'CircularStdBook';
+    src: url('../fonts/Circular/CircularStd-Book.otf');
+}
+
+@font-face {
+    font-family: 'Majorant';
+    src: url('../fonts/Majorant/Majorant-Lt.ttf');
+}
+
+.CircularStdBold {
+    font-family: CircularStdBold;
+}
+
+.CircularStdBook {
+    font-family: CircularStdBook;
+}
+
+.Majorant {
+    font-family: Majorant;
+}
+
+/* .telefono::placeholder {
+    color: #B3B3B4;
+} */
+
+#divHead1 {
+    background-color: #fff;
+    color: #686769;
+    padding-top: 30px;
+    /* height: 64px; */
+}
+
+#divHead2 {
+    background-color: #fff;
+    color: #0276DD;
+    padding-top: 30px;
+}
+
+#divText {
+    padding-top: 40px;
+    margin-left: 1.2%;
+}
+
+#divCar {
+    /* border: 5px solid white; */
+    border-radius: 10px;
+    background-color: white;
+    font-size: large;
+    margin: 2%;
+    width: 150px;
+    height: 125px;
+    /* text-align: center; */
+    color: #13385B;
+    float: left;
+    padding-top: 12px;
+    text-align: center;
+}
+
+#divCarT {
+    border-radius: 10px;
+    background-color: white;
+    margin: 2%;
+    width: 150px;
+    height: 125px;
+    color: #13385B;
+    float: left;
+    padding-top: 12px;
+    text-align: center;
+}
+
+#divCotizacion {
+    border-radius: 10px;
+    background-color: white;
+    /* position: static;
+    left: 838px; */
+    /* margin-top: 2%; */
+    margin-top: -2%;
+    margin-left: -4%;
+    width: 400px;
+    height: 262px;
+    padding: 3%;
+    float: right;
+    /* padding-top: 15px; */
+}
+
+#divCotizacion2 {
+    border-radius: 10px;
+    background-color: white;
+    /* position: static;
+    left: 838px; */
+    /* margin-top: 2%; */
+    margin-top: 2%;
+    margin-left: -8%;
+    width: 400px;
+    height: 262px;
+    padding: 3%;
+    float: right;
+    /* padding-top: 15px; */
+}
+
+#divlogotop {
+    
+    background-color: white;
+    
+    
+   
+    float: right;
+}
+
+@media only screen and (min-width: 1800px) {
+    #divPaquetes {
+        margin-left: 15%;
+    }
+    /* .maxR2 {
+        margin-left: 10%;
+    } */
+    #divPaquetesSeleccionado {
+        margin-right: 15%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    #divCotizacion {
+        display: none;
+    }
+    #divCotizacion2 {
+        display: none;
+    }
+	#divlogotop {
+        display: none;
+    }
+    #divCarT {
+        margin-left: 2%;
+    }
+    #datosCotizacion {
+        border-radius: 10px;
+        background-color: white;
+        margin-left: 180px;
+        margin-top: 15px;
+        width: auto;
+        height: auto;
+        color: #8E8D8E;
+        float: center;
+        padding-top: 20px;
+        padding: 12px;
+        text-align: left;
+        float: center;
+    }
+    #divResumenCotizacion {
+        display: none;
+    }
+    #divResumenHeader {
+        display: none !important;
+    }
+    #divResumenCotizacion {
+        display: none;
+    }
+    #divListoT {
+        /* box-sizing: border-box; */
+        margin-left: -3%;
+        /* border: 50px solid black; */
+        /* overflow-x: scroll; */
+        /* margin-right: 10%!important; */
+    }
+    #Prueba {
+        /* width: 400px; */
+        width: 350px;
+        margin-left: 30%;
+        /* overflow-x: none; */
+        /* margin-right: 10%!important; */
+    }
+    #divListoB {
+        margin-left: 31%;
+        width: 300px;
+    }
+    #divListoF {
+        margin-left: 15%;
+    }
+    #divCarT {
+        margin-left: 2%;
+    }
+    #divContratar {
+        width: 380px!important;
+        margin-left: 3.5%!important;
+        /* margin-top: 40px!important; */
+    }
+    #formContratarResumen {
+        padding-right: 20px;
+    }
+    #divDatosAsegurado {
+        width: 800px !important;
+        /*margin-left: 2% !important;*/
+        padding-left: 8px !important;
+        padding-right: 16px !important;
+    }
+    #divPaquetesMini {
+        display: none !important;
+    }
+    #divPaquetesMini {
+        margin-left: 20px;
+    }
+    #divPaquetesSeleccionadoMini {
+        margin-left: 20px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    #divCarT {
+        margin-left: 5%;
+    }
+    #divDatosAsegurado {
+        width: 350px !important;
+        /*margin-left: 2% !important;*/
+        padding-left: 8px !important;
+        padding-right: 16px !important;
+    }
+    #divPaquetes {
+        display: none !important;
+    }
+    #divPaquetes2 {
+        display: none !important;
+    }
+    #divPaquetesSeleccionado {
+        display: none !important;
+    }
+    #divResumenHeader {
+        display: block !important;
+    }
+    .accordion-button {
+        border: 0cm;
+    }
+    #divPaquetesMini {
+        display: block !important;
+        border-radius: 10px;
+        width: 335px;
+        margin-right: 20px;
+        margin-bottom: 54px;
+        margin-left: 25px;
+    }
+    #divPaquetesSeleccionadoMini {
+        display: block !important;
+        border-radius: 10px;
+        background-color: white;
+        /* padding: 20px; */
+        width: 335px;
+        height: auto;
+        margin-top: 3%;
+        margin-right: 60px;
+        margin-bottom: 54px;
+        margin-left: 25px;
+        padding-bottom: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border: 6px solid #0276DD;
+    }
+    #divPaquetesSeleccionadoInteriorMini {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    #divPaquetesSeleccionadoRecomendadoMini {
+        background-color: #0276DD;
+        width: 330px;
+        margin-left: -8%;
+        border-radius: 0px;
+    }
+    #divCarCotizacion {
+        width: 350px!important;
+        margin-left: 5%!important;
+        margin-right: 5%!important;
+    }
+    #divResumenCotizacionCheckout {
+        display: none !important;
+    }
+    #divResumenHeaderCheckout {
+        display: block !important;
+        width: 335px !important;
+        margin-left: 6% !important;
+        margin-right: 40% !important;
+        padding-left: 2px !important;
+        padding-right: 2px !important;
+    }
+    #divCheckout {
+        margin-left: 6%!important;
+    }
+	#divFooter {
+        margin-left: 6%!important;
+		font-size: small;
+		text-align: center;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    #divPaquetesMini {
+        margin-left: 10px;
+    }
+    #divPaquetesSeleccionadoMini {
+        margin-left: 10px;
+    }
+    #divResumenHeaderCheckout {
+        margin-left: 2% !important;
+    }
+    #divCheckout {
+        margin-left: 2%!important;
+    }
+	#divFooter {
+        margin-left: 2%!important;
+    }
+}
+
+#divResumenHeader {
+    display: none;
+}
+
+#divCotizacion2 {
+    color: #8E8D8E;
+}
+
+#divCotizacion2 {
+    color: #8E8D8E;
+}
+/*
+.verticalLine {
+    width: 2px;
+    background-color: #8E8D8E;
+    height: 43px;
+    float: left;
+    color: #686769;
+    margin-left: 10px;
+}*/
+
+.verticalLine {
+    width: 2px;
+    background-color: #8E8D8E;
+    height: 43px;
+    float: left;
+    color: #686769;
+    margin-left: 12px;
+}
+
+.verticalLine2 {
+    width: 2px;
+    background-color: #8E8D8E;
+    height: 50px;
+    float: left;
+    color: #686769;
+    margin-left: -3px;
+}
+
+.verticalLine3 {
+    width: 2px;
+    background-color: #8E8D8E;
+    height: 50px;
+    float: left;
+    color: #686769;
+    margin-left: -3px;
+}
+
+.verticalLineContratar {
+    width: 2px;
+    background-color: #8E8D8E;
+    height: 44px;
+    float: left;
+    color: #fff;
+    margin-left: 11px;
+}
+
+span.blue {
+    background: #0276DD;
+    border-radius: 0.8em;
+    -moz-border-radius: 0.8em;
+    -webkit-border-radius: 0.8em;
+    color: #ffffff;
+    display: inline-block;
+    line-height: 1.6em;
+    margin-right: 15px;
+    text-align: center;
+    width: 1.6em;
+}
+
+span.gray {
+    background: #B3B3B4;
+    border-radius: 0.8em;
+    -moz-border-radius: 0.8em;
+    -webkit-border-radius: 0.8em;
+    color: #ffffff;
+    display: inline-block;
+    line-height: 1.6em;
+    margin-right: 15px;
+    text-align: center;
+    width: 1.6em;
+}
+
+#divCarCotizacion {
+    border-radius: 10px;
+    background-color: white;
+    margin: 2%;
+    width: 800px;
+    height: auto;
+    float: left;
+    padding: 50px;
+}
+
+#datosCotizacion {
+    border-radius: 10px;
+    background-color: white;
+    margin-left: 16px;
+    width: auto;
+    height: auto;
+    color: #8E8D8E;
+    float: left;
+    padding-top: 20px;
+    padding: 12px;
+    text-align: left;
+    float: left;
+}
+
+.left {
+    float: left;
+    margin-left: 3%;
+    width: auto;
+}
+
+.center {
+    display: inline-block;
+    margin: 0 auto;
+    width: auto;
+}
+
+.right {
+    float: right;
+    width: auto;
+    margin-right: 3%;
+}
+
+#espacio {
+    background-color: white;
+    padding-top: 20px;
+}
+
+#divPaquetes {
+    border-radius: 10px;
+    background-color: white;
+    margin-top: 3%;
+    width: 420px;
+    height: auto;
+    padding-top: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+#divPaquetes2 {
+    border-radius: 10px;
+    background-color: white;
+    margin-top: 3%;
+    width: 420px;
+    height: auto;
+    padding-top: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+#divPaquetesSeleccionado {
+    border-radius: 10px;
+    background-color: white;
+    width: 420px;
+    height: auto;
+    margin-top: 3%;
+    /* padding: 20px; */
+    padding-bottom: 20px;
+    /* padding-left: 20px;
+    padding-right: 20px; */
+    border: 6px solid #0276DD;
+    /* box-sizing: border-box; */
+}
+
+#divPaquetesSeleccionadoInterior {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#divPaquetesSeleccionadoRecomendado {
+    background-color: #0276DD;
+    width: 410px;
+    margin-left: -3%;
+    border-radius: 0px;
+}
+
+#elegirPaquete {
+    margin-top: 1%;
+}
+
+#elegirPaquete {
+    margin-top: 3%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#divPaquetesMini {
+    border-radius: 10px;
+    background-color: white;
+    margin-top: 3%;
+    width: 420;
+    height: auto;
+    padding-top: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+span.textoAzul {
+    color: #0276DD;
+}
+
+ul {
+    list-style-image: url("../img/check.png");
+}
+
+#divDatosAsegurado {
+    border-radius: 10px;
+    margin: 2%;
+    margin-left: 3%;
+    width: 814px;
+    height: auto;
+    padding: 1%;
+    float: left;
+    padding-top: 15px;
+}
+
+#divResumenCotizacion {
+    border-radius: 10px;
+    background-color: white;
+    /* margin: 2%; */
+    /* float: right; */
+    width: 380px;
+    height: auto;
+    padding: 3%;
+    position: absolute;
+    left: 900px;
+    top: 140px;
+    padding-top: 15px;
+}
+
+#divAcuerdoConformidad {
+    width: auto;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.modalBodyScroll {
+    height: 400px;
+    width: auto;
+    overflow-y: auto;
+}
+
+#divContratar {
+    border-radius: 10px;
+    background-color: white;
+    margin: 3%;
+    margin-left: 7%;
+    width: 1238px;
+    height: auto;
+    top: 146px;
+    left: 101px;
+    padding: 3%;
+    float: center;
+    padding-top: 20px;
+}
+
+.space {
+    margin-left: 10%;
+}
+
+#btnPagar {
+    margin-right: 5%;
+}
+
+#divCheckout {
+    border-radius: 10px;
+    background-color: white;
+    margin: 3.2%;
+    margin-left: 5%;
+    width: 800px;
+    height: auto;
+    padding: 3%;
+    float: center;
+    padding-top: 20px;
+}
+
+#divFooter {
+    border-radius: 0px;
+    margin: 0px;
+    margin-left: 5%;
+    width: 800px;
+    height: auto;
+    padding: 3%;
+    float: center;
+    padding-top: 0px;
+	
+}
+
+#divResumenCotizacionCheckout {
+    border-radius: 10px;
+    background-color: white;
+    margin-top: 1%;
+    width: 350px;
+    height: auto;
+    padding: 3%;
+    position: absolute;
+    left: 1015px;
+    top: 120px;
+    padding-top: 15px;
+}
+
+#divListo {
+    border-radius: 10px;
+    background-color: #F8F8F8;
+    margin-top: 5%;
+    width: 900px;
+    height: auto;
+    padding: 3%;
+}
+
+.btn-azul {
+    background-color: #0276DD;
+    color: #ffffff;
+}
+
+.btn-gris {
+    background-color: #F8F8F8;
+    color: #0276DD;
+    border-style: solid;
+    border-color: #0276DD;
+}
+
+.modal-header {
+    border-bottom: 0 none;
+}
+
+#divPaquetesMini {
+    display: none;
+}
+
+#divPaquetesSeleccionadoMini {
+    display: none;
+}
+
+#divResumenHeaderCheckout {
+    display: none;
+}

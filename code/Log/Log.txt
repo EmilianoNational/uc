@@ -1,0 +1,5 @@
+20140318|103929|Could not find stored procedure 'spValidaTarjeta'.
+20140318|104107|Could not find stored procedure 'spValidaTarjeta'.
+20140318|104227|Could not find stored procedure 'spValidaTarjeta'.
+20140318|105006|No se puede encontrar la tabla 0.
+20140318|110058|No se puede encontrar la tabla 0.
