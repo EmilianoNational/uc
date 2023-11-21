@@ -1,4 +1,21 @@
+<?php
+//obtener el siguiente parametro con get ?c=353105024-0-1-1
+date_default_timezone_set('UTC');
+date_default_timezone_set('America/Monterrey');
 
+
+if (isset($_POST['t']) || isset($_GET['t'])) {
+    // Determina si se recibe 'token' por POST o GET o coloca un valor por defecto
+    
+    $sTarjetaEncriptada=isset($_POST['t']) ? $_POST['t'] : $_GET['t'] ;
+} else {
+    $sTarjetaEncriptada = '000';
+}
+
+	
+
+
+?>
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -14,6 +31,7 @@
 <link rel="manifest" href="_manifest.json" data-pwa-version="set_in_manifest_and_pwa_js">
 <link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
 </head>
+ 
     
 <body class="theme-light" data-highlight="blue2" style="background-color: #eef2f1;">
     
@@ -25,7 +43,7 @@
         
         <div class="page-title page-title-large" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
             <div>
-                <a href="./index.html">
+                <a href="./index.php">
                     <img src="../assets/nationalAzul.png" alt="National Unity logo" width="107" height="74">
                 </a>
             </div>
@@ -89,7 +107,7 @@
                     
                 </div>
             </a>
-            <a href="./vt2.aspx" class="col-6 ps-2">
+            <a href="./vt2.aspx?t=<?=$sTarjetaEncriptada?>" class="col-6 ps-2">
                 <div class="card card-style ms-0 mb-3">
                     <h1 class="center-text pt-4 mt-2">
                         <img src="../assets/poliza.png" alt="Consulta de póliza" width="35" height="51">

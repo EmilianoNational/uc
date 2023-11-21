@@ -52,7 +52,7 @@ End if
 
 <head>
     
-	<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<META http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
@@ -85,6 +85,16 @@ End if
 .SelectVacio {
     color: #B3B3B4 !important;
 }
+
+.campo-invalido {
+      border: 1px solid red;
+	  color: red;
+    }
+
+	.mensaje-error {
+		color: red;
+		font-size: 13px; 
+	}
  </style>
  
  <script>
@@ -102,18 +112,25 @@ End if
 		var ok = true;
            var msg = "";
 		   var ffull =f.cobertura.value + ' ' + f.horaContratacion.value + ':00';
+		   var bNombre = f.nombre.value;
+		   var bTelefono = f.telefono.value;
+		   var bPlacas = f.placas.value;
+		   var bAnio = f.anio.value;
+		   var bSerie = f.serie.value;
+		   var bMarca = f.descmarca.value;
 		   var bModelo= f.Descripcion.value;//f.Descripcion.selectedIndex;
+		   var bCorreo = f.correo.value;
+		   var bCobertura = f.cobertura.value;
+		   var bHora = f.horaContratacion.value;
 
-			if (bModelo==""){
-					 
-					msg = "El vehiculo no esta permitido\n";
-					 ok = false;
-				}		 
+			if (bNombre=="" || bTelefono=="" || bPlacas=="" || bAnio=="" || bSerie=="" || bMarca=="" || bModelo=="" || bCorreo=="" || bCobertura=="" || bHora==""){
+				ok = false;
+			}		 
 
             if ( ok == false ){
-				//alert(msg);
-				f.marca.value="";
-				//$('#modal1').modal('show');
+				console.log('Error')
+
+				$('#modal2').modal('show');
             }
 
 			if (ok==true){
@@ -180,8 +197,7 @@ End if
 			 document.getElementById('dCorreo').innerHTML  = 'Correo&nbsp;&nbsp;&nbsp;: '+vcorreo;
 			 document.getElementById('dCob').innerHTML  =    'Inicio&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: '+vcob;
 			 document.getElementById('dHora').innerHTML  =   'Hora&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: '+vhora;
-			 
-			 
+
 		 return false;
         }
 		
@@ -210,7 +226,7 @@ End if
 			</div>-->
 			<div class="page-title page-title-large" style="display: flex; justify-content: space-between; align-items: center">
 				<div>
-					<a href="./index.html">
+					<a href="./index.php">
 						<img src="../assets/nationalBlanco.png" alt="National Unity logo" width="107" height="74">
 					</a>
 				</div>
@@ -295,7 +311,7 @@ End if
 					<div class="card" style="padding: 16px;">
 						<div id="collapseOne" class="collapse show " aria-labelledby="headingOne" data-parent="#divDatosAsegurado">
 							<br>		
-								<div class="col clearfix" style="color: #000000;">
+								<div class="col clearfix" style="color: #000000;  margin-bottom: 20px;">
 									<h5> Activa tu tarjeta Unity Card de inmediato</h5>
 								</div>
 					
@@ -303,39 +319,39 @@ End if
 								<form name="fucard" id="fucard" action="ProcesoAUC.asp"  method="post">
 								
 									<div class="row" style="margin-bottom: 0px;">
-										<div style="margin-bottom: 0px !important" class="wrapper col-md-3 col-sm-12 input-style input-style-always-active has-borders no-icon validate-field my-4">
+											<div style="margin-top: 0px !important; padding-bottom: 30px;" class="wrapper col-md-3 col-sm-12 input-style input-style-always-active has-borders no-icon validate-field my-4">
 												<label style="font-size: 14px; color: #000; font-weight: 700;" for="cacesso">C&oacute;digo de Acceso</label>
 												<input type="text" pattern="{0-9}" class="form-control" value="<%=iIdCodAcceso%>"  id="cacceso" name="cacceso"  required  maxlength="10" placeholder="10 digitos">
-												<span id="code"></span><br />
+												<span id="code"></span>
 											</div>
-											<div style="margin-bottom: 0px !important; margin-top: 0px !important" class="col-md-3 col-sm-12 input-style input-style-always-active has-borders no-icon validate-field my-4">
+											<div style=" margin-top: 0px !important; padding-bottom: 30px;" class="col-md-3 col-sm-12 input-style input-style-always-active has-borders no-icon validate-field my-4">
 												<label style="font-size: 14px; color: #000; font-weight: 700;" for="nombre">Nombre(s) y Apellido(s)</label>
-												<input type="text" class="form-control"  value="<%=sNombreAsegurado%>" id="nombre" name="nombre" required maxlength=35 placeholder="Asegurado" style="color: #000000;"   ><br />
+												<input type="text" class="form-control"  value="<%=sNombreAsegurado%>" id="nombre" name="nombre" required maxlength=35 placeholder="Asegurado" style="color: #000000;"   >
 											</div>
-											<div style="margin-bottom: 0px !important; margin-top: 0px !important" class="col-md-3 col-sm-12 input-style input-style-always-active has-borders no-icon validate-field my-4">
+											<div style=" margin-top: 0px !important; padding-bottom: 30px;" class="col-md-3 col-sm-12 input-style input-style-always-active has-borders no-icon validate-field my-4">
 												<label style="font-size: 14px; color: #000; font-weight: 700;" for="telefono">Tel&eacute;fono de Contacto (10 d&iacute;gitos)</label>
-												<input type="text" class="form-control"  value="<%=sTelefono%>" id="telefono" maxlength=10  name="telefono" required placeholder="818 999 9999" style="color:#000000;"><br />
+												<input type="text" class="form-control"  value="<%=sTelefono%>" id="telefono" maxlength=10  name="telefono" required placeholder="818 999 9999" style="color:#000000;">
 											</div>
-										</div>
+									</div>
 									
 
 									<div class="row" style="margin-bottom: 0px;">
-										<div style="margin-bottom: 0px !important; margin-top: 0px !important" class="col-md-3 col-sm-12 input-style input-style-always-active has-borders no-icon validate-field my-4">
+										<div style="padding-bottom: 30px; margin-top: 0px !important" class="col-md-3 col-sm-12 input-style input-style-always-active has-borders no-icon validate-field my-4">
 											<label style="font-size: 14px; color: #000; font-weight: 700;" for="Placas">Placas del Veh&iacute;culo</label>
-											<input type="text" class="form-control" value="<%=sPlacas%>" id="placas" name="placas" maxlength=10 required placeholder="Placas" style="color: #000000;"><br />
+											<input type="text" class="form-control" value="<%=sPlacas%>" id="placas" name="placas" maxlength=10 required placeholder="Placas" style="color: #000000;">
 										</div>	
-										<div style="margin-bottom: 0px !important; margin-top: 0px !important" class="col-md-3 col-sm-12 input-style input-style-always-active has-borders no-icon validate-field my-4">
+										<div style="padding-bottom: 30px; margin-top: 0px !important" class="col-md-3 col-sm-12 input-style input-style-always-active has-borders no-icon validate-field my-4">
 											<label style="font-size: 14px; color: #000; font-weight: 700;" for="anio">A&ntilde;o del Veh&iacute;culo</label>
-											<input type="text" class="form-control" value="<%=iAnio%>" onkeypress="return isNumber(event)" maxlength=4 id="anio" name="anio" required placeholder="a&ntilde;o" maxlength=4 placeholder="4 digitos"  style="color:#000000;"><br />
+											<input type="text" class="form-control" value="<%=iAnio%>" onkeypress="return isNumber(event)" maxlength=4 id="anio" name="anio" required placeholder="a&ntilde;o" maxlength=4 placeholder="4 digitos"  style="color:#000000;">
 										</div>
-										<div style="margin-bottom: 0px !important; margin-top: 0px !important" class="col-md-3 col-sm-12 input-style input-style-always-active has-borders no-icon validate-field my-4">
+										<div style="padding-bottom: 30px; margin-top: 0px !important" class="col-md-3 col-sm-12 input-style input-style-always-active has-borders no-icon validate-field my-4">
 											<label style="font-size: 14px; color: #000; font-weight: 700;" for="Serie">Serie del Veh&iacute;culo</label>
-											<input type="text" class="form-control" value="<%=sSerie%>" id="serie" maxlength=17 name="serie" required placeholder="Serie" style="color: #000000;"><br />
+											<input type="text" class="form-control" value="<%=sSerie%>" id="serie" maxlength=17 name="serie" required placeholder="Serie" style="color: #000000;">
 										</div>
 									</div>
 		
 									<div class="row" style="margin-bottom: 0px;">
-										<div class="col-md-3 col-sm-12 input-style input-style-always-active has-borders no-icon validate-field my-4">
+										<div style="padding-bottom: 30px; margin-top: 0px !important" class="col-md-3 col-sm-12 input-style input-style-always-active has-borders no-icon validate-field my-4">
 											<label style="font-size: 14px; color: #000; font-weight: 700;" for="marca">Marca del Veh&iacute;culo</label>
 											<input id="descmarca" name="descmarca" type="hidden">
 											<!--<h6><font size=2 color="blue">(*)Solicite ayuda en caso de no encontrar la opción deseada</font></h6>-->
@@ -353,8 +369,8 @@ End if
 											</select>
 											<font size=1 color="#0276DD">(*) Solicite ayuda en caso de no encontrar la opci&oacute;n deseada</font>
 										</div>
-									<!--Agregar Javascript para evitar los modelos prohibidos-->
-										<div name="ResultadoModeloAuto" id="ResultadoModeloAuto" class="col-md-3 col-sm-12 input-style input-style-always-active has-borders no-icon validate-field my-4">
+										<!--Agregar Javascript para evitar los modelos prohibidos-->
+										<div name="ResultadoModeloAuto" id="ResultadoModeloAuto" style="padding-bottom: 30px; margin-top: 0px !important" class="col-md-3 col-sm-12 input-style input-style-always-active has-borders no-icon validate-field my-4">
 											<label style="font-size: 14px; color: #000; font-weight: 700;" for="marca">Modelo del Veh&iacute;culo</label>
 											<!--<h6><font size=2 color="blue">(*)Solicite ayuda en caso de no encontrar la opción deseada</font></h6>-->
 											<select class="form-control"  id="Descripcion" name="Descripcion" required style="color:#000000;">
@@ -364,25 +380,24 @@ End if
 											<font size=1 color="#0276DD">(*) Solicite ayuda en caso de no encontrar la opci&oacute;n deseada</font>
 										</div>
 										
-										<div style="margin-bottom: 0px !important;" class="col-md-3 col-sm-12 input-style input-style-always-active has-borders no-icon validate-field my-4">
+										<div style="padding-bottom: 30px; margin-top: 0px !important" class="col-md-3 col-sm-12 input-style input-style-always-active has-borders no-icon validate-field my-4">
 											<label style="font-size: 14px; color: #000; font-weight: 700;" for="correo">Correo electr&oacute;nico</label>
 											<!--<h6><font size=2 color="blue"><br> </font></h6>-->
 											<input type="text" class="form-control" value="<%=sEmail%>" id="correo" name="correo" required placeholder="ejemplo@mail.com" style="color:#000000;">
 										</div>
 									</div>
-									<br />
+									
 									<div class="row" style="margin-bottom: 0px;">
-										<div style="margin-bottom: 0px !important; margin-top: 0px !important" class="col-md-3 col-sm-6 input-style input-style-always-active has-borders no-icon validate-field my-4">
+										<div style="padding-bottom: 30px; margin-top: 0px !important" class="col-md-3 col-sm-6 input-style input-style-always-active has-borders no-icon validate-field my-4">
 											<label style="font-size: 14px; color: #000; font-weight: 700;" for="cobertura">Inicio de cobertura</label>
 											<input type="date"   id="cobertura" name="cobertura" required  min="<%=Finicio%>" value="<%=Finicio%>" style="color:#000000; line-height: 1.1;">
 										</div>
 									
-										<div style="margin-bottom: 0px !important;" class="col-md-3 col-sm-6 input-style input-style-always-active has-borders no-icon validate-field my-4">
+										<div style="padding-bottom: 30px; margin-top: 0px !important" class="col-md-3 col-sm-6 input-style input-style-always-active has-borders no-icon validate-field my-4">
 											<label style="font-size: 14px; color: #000; font-weight: 700;" for="horaContratacion">Hora de Inicio (CST)</label>
 											<input type="time" id="horaContratacion" name="horaContratacion" value="<%=sHoraInicio%>" required placeholder="05:00" style="color:#000000; line-height: 1.1;">
 										</div>
 									</div>
-									<br>
 									<!--
 									<div class="row">
 										<div class="col text-center">
@@ -543,6 +558,22 @@ End if
 			</div>
 		</div>
 	</div>
+
+	<div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header bg-danger text-light text-center">
+					<h5 class="modal-title " id="exampleModalLabel" style="color: #fff">Espere</h5>
+				</div>
+				<div class="modal-body">
+					<h2 style="color: #000">Faltan campos por llenar</h2>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" onclick="cerrarModalCampos()">Cerrar</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	
         <!--<script type="text/javascript" src="xxxassets/js/script.js"></script>-->
         
@@ -552,11 +583,72 @@ End if
         <script type="text/javascript" src="xxxassets/js/accordion.js"></script>
 		<script type="text/javascript" src="scripts/custom.js"></script>
         <script type="text/javascript" src="xxxassets/js/bootstrap-datepicker.js"></script>
-        <script type="text/javascript">
-           // $(function() {
-           //     $('.datepicker').datepicker();
-			//	$('#modal1').modal('show');
-           // });
+		<script>
+			//Funcion para cerrar modal de Falta de campos por llenar
+			function cerrarModalCampos() {
+				$('#modal2').modal('hide');
+			}
+		</script>
+        <script>
+           // Obtenemos todos los campos del formulario
+			var campos = document.querySelectorAll('input[required]');
+
+			// Asignamos un evento blur a cada campo para validar en tiempo real
+			campos.forEach(function (campo) {
+				campo.addEventListener('blur', function () {
+				validarCampo(campo);
+				});
+			});
+
+			// Función para validar un campo
+			function validarCampo(campo) {
+				if (campo.value === '') {
+				// Si el campo está vacío, aplicamos el estilo y mostramos el mensaje
+				campo.classList.add('campo-invalido');
+				mostrarMensaje(campo, 'Este campo es obligatorio');
+				} else {
+				// Si el campo tiene valor, quitamos el estilo y ocultamos el mensaje
+				campo.classList.remove('campo-invalido');
+				ocultarMensaje(campo);
+				}
+			}
+
+			// Función para mostrar un mensaje de error
+			function mostrarMensaje(campo, mensaje) {
+				// Verificamos si ya hay un mensaje mostrándose
+				var mensajeExistente = campo.parentElement.querySelector('.mensaje-error');
+				if (!mensajeExistente) {
+				// Creamos un elemento de mensaje y lo agregamos después del campo
+				var mensajeError = document.createElement('div');
+				mensajeError.className = 'mensaje-error';
+				mensajeError.textContent = mensaje;
+				campo.parentElement.appendChild(mensajeError);
+				}
+			}
+
+			// Función para ocultar el mensaje de error
+			function ocultarMensaje(campo) {
+				// Buscamos y eliminamos el elemento de mensaje si existe
+				var mensajeError = campo.parentElement.querySelector('.mensaje-error');
+				if (mensajeError) {
+				mensajeError.remove();
+				}
+			}
+
+			// Asignamos un evento submit al formulario para realizar la validación antes de enviar
+			document.getElementById('miFormulario').addEventListener('submit', function (event) {
+				// Validamos cada campo antes de enviar el formulario
+				campos.forEach(function (campo) {
+				validarCampo(campo);
+				});
+
+				// Verificamos si hay algún campo inválido
+				var camposInvalidos = document.querySelectorAll('.campo-invalido');
+				if (camposInvalidos.length > 0) {
+				// Si hay campos inválidos, evitamos el envío del formulario
+				event.preventDefault();
+				}
+			});
         </script>
         <script>
               $(document).ready(function() {
