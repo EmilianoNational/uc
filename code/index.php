@@ -12,9 +12,6 @@ if (isset($_POST['t']) || isset($_GET['t'])) {
     $sTarjetaEncriptada = '000';
 }
 
-	
-
-
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -43,7 +40,7 @@ if (isset($_POST['t']) || isset($_GET['t'])) {
         
         <div class="page-title page-title-large" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
             <div>
-                <a href="./index.php">
+                <a href="index.php?t=<?=$sTarjetaEncriptada?>">
                     <img src="../assets/nationalAzul.png" alt="National Unity logo" width="107" height="74">
                 </a>
             </div>
@@ -89,7 +86,7 @@ if (isset($_POST['t']) || isset($_GET['t'])) {
                     
                 </div>
             </a>
-            <a href="./reportar-accidente.html" class="col-6 ps-2">
+            <a href="./reportar-accidente.php?t=<?=$sTarjetaEncriptada?>" class="col-6 ps-2">
                 <div class="card card-style ms-0 mb-3">
                     <h1 class="center-text pt-4 mt-2">
                         <img src="../assets/choque.png" alt="Car crash"  width="60" height="60">
@@ -98,7 +95,7 @@ if (isset($_POST['t']) || isset($_GET['t'])) {
                     
                 </div>
             </a>
-            <a href="./asistencia-vial.html" class="col-6 pe-2">
+            <a href="./asistencia-vial.php?t=<?=$sTarjetaEncriptada?>" class="col-6 pe-2">
                 <div class="card card-style me-0 mb-3">
                     <h1 class="center-text pt-4 mt-2">
                         <img src="../assets/remolque_NU.png" alt="Grúa" width="60" height="50">
@@ -158,7 +155,7 @@ if (isset($_POST['t']) || isset($_GET['t'])) {
     <div id="menu-main"
          class="menu menu-box-right menu-box-detached rounded-m"
          data-menu-width="260"
-         data-menu-load="menu-main.html"
+         data-menu-load="menu-main.php?t=<?=$sTarjetaEncriptada?>"
          data-menu-active="nav-welcome"
          data-menu-effect="menu-over">  
     </div>

@@ -28,7 +28,7 @@
 
 				<div class="page-title page-title-large" style="display: flex; justify-content: space-between; align-items: center">
 					<div>
-						<a href="./index.php">
+						<a href="#" id="logoLink">
 							<img src="../assets/nationalAzul.png" alt="National Unity logo" width="107" height="74">
 						</a>
 					</div>
@@ -140,10 +140,17 @@
 																<%if lblTitulo.text = "Tarjeta Pendiente de Activacion."  or lblTitulo.text = "Tarjeta Vendida" then%>
 																	<tr>
 																		
-																		<!--aquiprueba<td colspan=2 align="center">
-																			<a href="http://148.244.90.102/Activador.aspx" target="_blank" class="button"> 
-																			<button type="button" class="btn btn-primary">ACTIVAR EN LINEA</button></a>
-																		</td>-->
+																		<td colspan=2 align="center">
+																			<br>
+																			<br>
+																			<br>
+																			<br>
+																			<a href="activa.asp" class="button mt-4"> 
+																				<button type="button" class="btn btn-m btn-full mb-3 rounded-xs bg-mint-dark">
+																					ACTIVAR EN LíNEA
+																				</button>
+																			</a>
+																		</td>
 																	</tr>
 																<%end if%>
 																	
@@ -183,12 +190,19 @@
    	<div id="menu-main"
 		class="menu menu-box-right menu-box-detached rounded-m"
 		data-menu-width="260"
-		data-menu-load="menu-main.html"
+		data-menu-load="menu-main.php"
 		data-menu-active="nav-welcome"
 		data-menu-effect="menu-over">  
    	</div>
 
 	<script type="text/javascript" src="scripts/bootstrap.min.js"></script>
 	<script type="text/javascript" src="scripts/custom.js"></script>
+	<script>
+		document.getElementById('logoLink').addEventListener('click', function(e) {
+			console.log('click')
+			e.preventDefault(); // Evitar el comportamiento predeterminado del enlace
+			window.history.back(); // Volver a la página anterior
+		});
+	</script>
 </body>
 </html>

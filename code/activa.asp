@@ -4,6 +4,7 @@
 <%
 
 m=request.querystring("m")
+t=request.querystring("t")
 ico=request.querystring("co")
 iFolioUnity=request.querystring("f")
 sMsj=request.querystring("msj")
@@ -226,7 +227,7 @@ End if
 			</div>-->
 			<div class="page-title page-title-large" style="display: flex; justify-content: space-between; align-items: center">
 				<div>
-					<a href="./index.php">
+					<a href="./index.php?t=<%=t%>">
 						<img src="../assets/nationalBlanco.png" alt="National Unity logo" width="107" height="74">
 					</a>
 				</div>
@@ -332,6 +333,10 @@ End if
 												<label style="font-size: 14px; color: #000; font-weight: 700;" for="telefono">Tel&eacute;fono de Contacto (10 d&iacute;gitos)</label>
 												<input type="text" class="form-control"  value="<%=sTelefono%>" id="telefono" maxlength=10  name="telefono" required placeholder="818 999 9999" style="color:#000000;">
 											</div>
+											<div style=" margin-top: 0px !important; padding-bottom: 30px;" class="col-md-3 col-sm-12 input-style input-style-always-active has-borders no-icon validate-field my-4">
+												<label style="font-size: 14px; color: #000; font-weight: 700;" for="fecha">Fecha de nacimiento</label>
+												<input type="date" class="form-control"  value="<%=sTelefono%>" id="fecha" maxlength=10  name="fecha" required  style="color:#000000;">
+											</div>
 									</div>
 									
 
@@ -348,6 +353,23 @@ End if
 											<label style="font-size: 14px; color: #000; font-weight: 700;" for="Serie">Serie del Veh&iacute;culo</label>
 											<input type="text" class="form-control" value="<%=sSerie%>" id="serie" maxlength=17 name="serie" required placeholder="Serie" style="color: #000000;">
 										</div>
+										<div style="padding-bottom: 30px; margin-top: 0px !important" class="col-md-3 col-sm-12 input-style input-style-always-active has-borders no-icon validate-field my-4">
+											<label style="font-size: 14px; color: #000; font-weight: 700;" for="marca">Estado de entrada</label>
+											<input id="descmarca" name="descmarca" type="hidden">
+											<!--<h6><font size=2 color="blue">(*)Solicite ayuda en caso de no encontrar la opción deseada</font></h6>-->
+											<select class="form-control"  id="marca" name="marca" onchange="ModeloautoUC();" required style="color:#000000;">
+												<option value="">----Selecciona----</option>
+												<%sSQlMarcaAutos="EXEC spMarcaAutoUC"	
+													Set oMarcaVehiculos = objConn.execute(sSQlMarcaAutos)
+													WHILE NOT oMarcaVehiculos.EOF
+														iIdMarca=oMarcaVehiculos("Marca")
+														sMarcaNombre=oMarcaVehiculos("MarcaNombre")%>	
+													<option value=<%=iIdMarca%> <%if iIdMarca=iMarca then%> SELECTED <%End if%>><%=sMarcaNombre%></option>
+													<%oMarcaVehiculos.MoveNext
+													wend%>
+													<!--<option value="0">OTRO</option>-->
+											</select>
+										</div>
 									</div>
 		
 									<div class="row" style="margin-bottom: 0px;">
@@ -356,16 +378,16 @@ End if
 											<input id="descmarca" name="descmarca" type="hidden">
 											<!--<h6><font size=2 color="blue">(*)Solicite ayuda en caso de no encontrar la opción deseada</font></h6>-->
 											<select class="form-control"  id="marca" name="marca" onchange="ModeloautoUC();" required style="color:#000000;">
-											<option value="">----Selecciona----</option>
-											<%sSQlMarcaAutos="EXEC spMarcaAutoUC"	
-												Set oMarcaVehiculos = objConn.execute(sSQlMarcaAutos)
-												WHILE NOT oMarcaVehiculos.EOF
-													iIdMarca=oMarcaVehiculos("Marca")
-													sMarcaNombre=oMarcaVehiculos("MarcaNombre")%>	
-												<option value=<%=iIdMarca%> <%if iIdMarca=iMarca then%> SELECTED <%End if%>><%=sMarcaNombre%></option>
-												<%oMarcaVehiculos.MoveNext
-												wend%>
-												<!--<option value="0">OTRO</option>-->
+												<option value="">----Selecciona----</option>
+												<%sSQlMarcaAutos="EXEC spMarcaAutoUC"	
+													Set oMarcaVehiculos = objConn.execute(sSQlMarcaAutos)
+													WHILE NOT oMarcaVehiculos.EOF
+														iIdMarca=oMarcaVehiculos("Marca")
+														sMarcaNombre=oMarcaVehiculos("MarcaNombre")%>	
+													<option value=<%=iIdMarca%> <%if iIdMarca=iMarca then%> SELECTED <%End if%>><%=sMarcaNombre%></option>
+													<%oMarcaVehiculos.MoveNext
+													wend%>
+													<!--<option value="0">OTRO</option>-->
 											</select>
 											<font size=1 color="#0276DD">(*) Solicite ayuda en caso de no encontrar la opci&oacute;n deseada</font>
 										</div>
@@ -508,8 +530,8 @@ End if
 	</div>
 	
 	<!-- Modal -->
-	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
+	<div class="modal fade bd-example-modal-sm" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-sm">
 			<div class="modal-content">
 												
 				<div class="modal-header bg-primary text-light text-center">
@@ -517,17 +539,16 @@ End if
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<div id="dName"></div>
-					<div id="dTel"></div>
-					<div id="dPlacas"></div>
-					<div id="dAnio"></div>
-					<div id="dSerie"></div>
-					<div id="dMarca"></div>
-					<div id="dDesc"></div>
-					<div id="dCorreo"></div>
-					<div id="dCob"></div>
-					<div id="dHora"></div>
-													
+					<div id="dName"style="padding-bottom: 5px;"></div>
+					<div id="dTel" style="border-top: 1px solid #dee2e6; padding-bottom: 5px; padding-top: 5px"></div>
+					<div id="dPlacas" style="border-top: 1px solid #dee2e6; padding-bottom: 5px; padding-top: 5px"></div>
+					<div id="dAnio" style="border-top: 1px solid #dee2e6; padding-bottom: 5px; padding-top: 5px"></div>
+					<div id="dSerie" style="border-top: 1px solid #dee2e6; padding-bottom: 5px; padding-top: 5px"></div>
+					<div id="dMarca" style="border-top: 1px solid #dee2e6; padding-bottom: 5px; padding-top: 5px"></div>
+					<div id="dDesc" style="border-top: 1px solid #dee2e6; padding-bottom: 5px; padding-top: 5px"></div>
+					<div id="dCorreo" style="border-top: 1px solid #dee2e6; padding-bottom: 5px; padding-top: 5px"></div>
+					<div id="dCob" style="border-top: 1px solid #dee2e6; padding-bottom: 5px; padding-top: 5px"></div>
+					<div id="dHora" style="border-top: 1px solid #dee2e6; padding-bottom: 5px; padding-top: 5px"></div>								
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -588,7 +609,7 @@ End if
 			function cerrarModalCampos() {
 				$('#modal2').modal('hide');
 			}
-		</script>
+		</script> 
         <script>
            // Obtenemos todos los campos del formulario
 			var campos = document.querySelectorAll('input[required]');

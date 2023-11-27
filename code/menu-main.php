@@ -1,8 +1,23 @@
 <!-- <script src="script.js"></script> -->
+<?php
+//obtener el siguiente parametro con get ?c=353105024-0-1-1
+date_default_timezone_set('UTC');
+date_default_timezone_set('America/Monterrey');
+
+
+if (isset($_POST['t']) || isset($_GET['t'])) {
+    // Determina si se recibe 'token' por POST o GET o coloca un valor por defecto
+    
+    $sTarjetaEncriptada=isset($_POST['t']) ? $_POST['t'] : $_GET['t'] ;
+} else {
+    $sTarjetaEncriptada = '000';
+}
+
+?>
 
 <div class="menu-items mb-4 mt-4">
     <h5 class="text-uppercase opacity-20 font-12 pl-3">Menu</h5>
-    <a class="menu-item" id="nav-welcome" href="index.html">
+    <a class="menu-item" id="nav-welcome" href="index.php?t=<?=$sTarjetaEncriptada?>">
         <i data-feather="home" data-feather-line="1" data-feather-size="16" data-feather-color="blue-dark" data-feather-bg="blue-fade-light"></i>
         <span>Home</span>
         <i class="fa fa-circle"></i>
@@ -12,17 +27,17 @@
         <span>Activar Tarjeta</span>
         <i class="fa fa-circle"></i>
     </a>
-    <a class="menu-item" id="nav-pages" href="reportar-accidente.html">
+    <a class="menu-item" id="nav-pages" href="reportar-accidente.php?t=<?=$sTarjetaEncriptada?>">
         <img src="../assets/crash.png" alt="Car crash" width="15" height="15" style="margin-left: 20px;">
         <span style="padding-left: 20px;">Reportar Accidente</span>
         <i class="fa fa-circle"></i>
     </a>
-    <a class="menu-item" id="nav-media" href="asistencia-vial.html">
+    <a class="menu-item" id="nav-media" href="asistencia-vial.php?t=<?=$sTarjetaEncriptada?>">
         <img src="../assets/remolque_NU.png" alt="Grúa" width="17" height="15" style="margin-left: 20px;">
         <span style="padding-left: 20px;">Asistencia Vial</span>
         <i class="fa fa-circle"></i>
     </a>
-    <a class="menu-item" id="nav-settings" href="vt2.aspx">
+    <a class="menu-item" id="nav-settings" href="./vt2.aspx?t=<?=$sTarjetaEncriptada?>">
         <img src="../assets/poliza.png" alt="Consulta de póliza" width="15" height="15" style="margin-left: 20px;">
         <span style="padding-left: 20px;">Consulta tu Póliza</span>
         <i class="fa fa-circle"></i>

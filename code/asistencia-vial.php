@@ -1,4 +1,21 @@
+<?php
+//obtener el siguiente parametro con get ?c=353105024-0-1-1
+date_default_timezone_set('UTC');
+date_default_timezone_set('America/Monterrey');
 
+
+if (isset($_POST['t']) || isset($_GET['t'])) {
+    // Determina si se recibe 'token' por POST o GET o coloca un valor por defecto
+    
+    $sTarjetaEncriptada=isset($_POST['t']) ? $_POST['t'] : $_GET['t'] ;
+} else {
+    $sTarjetaEncriptada = '000';
+}
+
+	
+
+
+?>
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -25,7 +42,7 @@
         
         <div class="page-title page-title-large" style="display: flex; justify-content: space-between; align-items: center">
             <div>
-                <a href="./index.html">
+                <a href="./index.php?t=<?=$sTarjetaEncriptada?>">
                     <img src="../assets/nationalBlanco.png" alt="National Unity logo" width="107" height="74">
                 </a>
             </div>
@@ -195,7 +212,7 @@
     <div id="menu-main"
          class="menu menu-box-right menu-box-detached rounded-m"
          data-menu-width="260"
-         data-menu-load="menu-main.html"
+         data-menu-load="menu-main.php"
          data-menu-active="nav-welcome"
          data-menu-effect="menu-over">  
     </div>
