@@ -1,6 +1,6 @@
 <?php
-require '../../../../vendor/autoload.php';
-require('fecha_español.php');
+require '../../vendor/autoload.php';
+// require('fecha_español.php');
 date_default_timezone_set('UTC');
 date_default_timezone_set('America/Monterrey');
 
@@ -75,8 +75,8 @@ var_dump($_POST);
 $hoy = date("d-m-Y H:i:s");
 $fecha = date("d-m-Y", strtotime($hoy . "+ 5 days"));
 
-$var3 = fechaCastellano($hoy);
-$var4 = fechaCastellano($fecha);
+$var3 = $hoy;
+$var4 = $fecha;
 $Poliza = $_POST['poliza_number'];
 
 $P = $_POST['papel'];
