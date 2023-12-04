@@ -212,7 +212,11 @@ if (isset($_POST['t']) || isset($_GET['t'])) {
     <div id="menu-main"
          class="menu menu-box-right menu-box-detached rounded-m"
          data-menu-width="260"
+<<<<<<< HEAD
          data-menu-load="menu-main.php"
+=======
+         data-menu-load="menu-main.php?t=<?=$sTarjetaEncriptada?>"
+>>>>>>> 8392785 (Commit con git)
          data-menu-active="nav-welcome"
          data-menu-effect="menu-over">  
     </div>

@@ -77,7 +77,7 @@ if (isset($_POST['t']) || isset($_GET['t'])) {
         <!-- <div style="height:45vh"> -->
 
         <div class="row text-center mb-0 mt-6">
-            <a href="./activa.asp" class="col-6 pe-2">
+            <a href="./activa.asp?t=<?=$sTarjetaEncriptada?>" class="col-6 pe-2">
                 <div class="card card-style me-0 mb-3" style="height: 196px;">
                     <h1 class="center-text pt-4 mt-2">
                         <img src="../assets/card.png" alt="Car crash"  width="60" height="60">

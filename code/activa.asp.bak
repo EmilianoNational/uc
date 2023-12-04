@@ -14,23 +14,6 @@ mes = LlenaCeros(Month(Date()),2)
 dia = LlenaCeros(Day(Date()),2)
 Finicio =  Year(Date())  & "-" & mes  &"-"& dia
 
-vFminedad = DateAdd("yyyy", -21, Date())
-diamin = LlenaCeros(Day(vFminedad),2)
-mesmin = LlenaCeros(Month(vFminedad),2)
-aniomin = LlenaCeros(Year(vFminedad),4)
-
-Fminedad =aniomin & "-" & mesmin & "-" & diamin
-
-vFmaxedad = DateAdd("yyyy", -75, Date())
-diamax = LlenaCeros(Day(vFmaxedad),2)
-mesmax = LlenaCeros(Month(vFmaxedad),2)
-aniomax = LlenaCeros(Year(vFmaxedad),4)
-Fmaxedad = aniomax & "-" & mesmax & "-" & diamax
-
-'response.write Fminedad
-'response.write "<br>"
-'response.write Fmaxedad
-
 ''Atrapamos las variables cuando haya error
 
 errnum=request.form("errnum")
@@ -44,10 +27,7 @@ sModelo=sValidarCadena(request.form("sModeloError"),false)
 sSerie=sValidarCadena(request.form("sSerieError"),false)
 sPlacas=sValidarCadena(request.form("sPlacasError"),false)
 sFechaInicio=sValidarCadena(request("sFechaInicioError"),false)
-sHoraInicio=sValidarCadena(request("sHoraInicioError"),false)
-sEdoent=sValidarCadena(request.form("sEdoentError"),false)
-sFnac=request.form("sFnacError")
-'response.write sFnac
+sHoraInicio=sValidarCadena(request("sHoraInicioError"),false) 
 
 if sFechaInicio="" then
 	sFechaInicio=Finicio
@@ -207,8 +187,6 @@ End if
 			 var vcorreo =document.getElementById('correo').value;
 			 var vcob =document.getElementById('cobertura').value;
 			 var vhora =document.getElementById('horaContratacion').value;
-			 var vedoent =document.getElementById('edoent').value;
-			 var vfnac =document.getElementById('fnac').value;
 			 
 			 document.getElementById('dName').innerHTML  =   'Nombre  : '+ vnombre;
 			 document.getElementById('dTel').innerHTML  =    'Telefono: '+ vtel;
@@ -220,9 +198,7 @@ End if
 			 document.getElementById('dCorreo').innerHTML  = 'Correo&nbsp;&nbsp;&nbsp;: '+vcorreo;
 			 document.getElementById('dCob').innerHTML  =    'Inicio&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: '+vcob;
 			 document.getElementById('dHora').innerHTML  =   'Hora&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: '+vhora;
-			 document.getElementById('dEdo').innerHTML     	='Estado Entrada: '+ vedoent;
-			 document.getElementById('dFnac').innerHTML    	='Fecha Nacimiento: '+ vfnac;
-			 
+
 		 return false;
         }
 		
@@ -341,9 +317,8 @@ End if
 								</div>
 					
 							<div class="card-body">
-								<form name="fucard" id="fucard" action="ProcesoAUC2.asp"  method="post">
-									<input type="hidden" id="t" name="t" value="<%=t%>" > 
-									
+								<form name="fucard" id="fucard" action="ProcesoAUC.asp"  method="post">
+								
 									<div class="row" style="margin-bottom: 0px;">
 											<div style="margin-top: 0px !important; padding-bottom: 30px;" class="wrapper col-md-3 col-sm-12 input-style input-style-always-active has-borders no-icon validate-field my-4">
 												<label style="font-size: 14px; color: #000; font-weight: 700;" for="cacesso">C&oacute;digo de Acceso</label>
@@ -359,8 +334,8 @@ End if
 												<input type="text" class="form-control"  value="<%=sTelefono%>" id="telefono" maxlength=10  name="telefono" required placeholder="818 999 9999" style="color:#000000;">
 											</div>
 											<div style=" margin-top: 0px !important; padding-bottom: 30px;" class="col-md-3 col-sm-12 input-style input-style-always-active has-borders no-icon validate-field my-4">
-												<label style="font-size: 14px; color: #000; font-weight: 700;" for="fnac">Fecha de nacimiento</label>
-												<input type="date" class="form-control"  value="<%=sTelefono%>" id="fnac" maxlength=10  name="fnac" required  style="color:#000000;">
+												<label style="font-size: 14px; color: #000; font-weight: 700;" for="fecha">Fecha de nacimiento</label>
+												<input type="date" class="form-control"  value="<%=sTelefono%>" id="fecha" maxlength=10  name="fecha" required  style="color:#000000;">
 											</div>
 									</div>
 									
@@ -379,12 +354,20 @@ End if
 											<input type="text" class="form-control" value="<%=sSerie%>" id="serie" maxlength=17 name="serie" required placeholder="Serie" style="color: #000000;">
 										</div>
 										<div style="padding-bottom: 30px; margin-top: 0px !important" class="col-md-3 col-sm-12 input-style input-style-always-active has-borders no-icon validate-field my-4">
-											<label style="font-size: 14px; color: #000; font-weight: 700;" for="edoent">Estado de entrada</label>
-											 <select class="form-select" id="edoent" name="edoent" required style="color:#000000;">
-												<option <%if sEdoent = "TX" Then %> SELECTED<%end if%> value="TX">TX</option>
-												<option <%if sEdoent = "NM" Then %> SELECTED<%end if%> value="NM">NM</option>
-												<option <%if sEdoent = "AZ" Then %> SELECTED<%end if%> value="AZ">AZ</option>
-												<option <%if sEdoent = "CA" Then %> SELECTED<%end if%> value="CA">CA</option>
+											<label style="font-size: 14px; color: #000; font-weight: 700;" for="marca">Estado de entrada</label>
+											<input id="descmarca" name="descmarca" type="hidden">
+											<!--<h6><font size=2 color="blue">(*)Solicite ayuda en caso de no encontrar la opción deseada</font></h6>-->
+											<select class="form-control"  id="marca" name="marca" onchange="ModeloautoUC();" required style="color:#000000;">
+												<option value="">----Selecciona----</option>
+												<%sSQlMarcaAutos="EXEC spMarcaAutoUC"	
+													Set oMarcaVehiculos = objConn.execute(sSQlMarcaAutos)
+													WHILE NOT oMarcaVehiculos.EOF
+														iIdMarca=oMarcaVehiculos("Marca")
+														sMarcaNombre=oMarcaVehiculos("MarcaNombre")%>	
+													<option value=<%=iIdMarca%> <%if iIdMarca=iMarca then%> SELECTED <%End if%>><%=sMarcaNombre%></option>
+													<%oMarcaVehiculos.MoveNext
+													wend%>
+													<!--<option value="0">OTRO</option>-->
 											</select>
 										</div>
 									</div>
@@ -559,17 +542,15 @@ End if
 					<div id="dName"style="padding-bottom: 5px;"></div>
 					<div id="dTel" style="border-top: 1px solid #dee2e6; padding-bottom: 5px; padding-top: 5px"></div>
 					<div id="dPlacas" style="border-top: 1px solid #dee2e6; padding-bottom: 5px; padding-top: 5px"></div>
-					<div id="dEdo" style="border-top: 1px solid #dee2e6; padding-bottom: 5px; padding-top: 5px"></div>
 					<div id="dAnio" style="border-top: 1px solid #dee2e6; padding-bottom: 5px; padding-top: 5px"></div>
 					<div id="dSerie" style="border-top: 1px solid #dee2e6; padding-bottom: 5px; padding-top: 5px"></div>
 					<div id="dMarca" style="border-top: 1px solid #dee2e6; padding-bottom: 5px; padding-top: 5px"></div>
-					<div id="dFnac" style="border-top: 1px solid #dee2e6; padding-bottom: 5px; padding-top: 5px"></div>
 					<div id="dDesc" style="border-top: 1px solid #dee2e6; padding-bottom: 5px; padding-top: 5px"></div>
 					<div id="dCorreo" style="border-top: 1px solid #dee2e6; padding-bottom: 5px; padding-top: 5px"></div>
 					<div id="dCob" style="border-top: 1px solid #dee2e6; padding-bottom: 5px; padding-top: 5px"></div>
 					<div id="dHora" style="border-top: 1px solid #dee2e6; padding-bottom: 5px; padding-top: 5px"></div>								
 				</div>
-				<div class="modal-footer d-flex justify-content-center">
+				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
 					<button class="btn btn-primary " id="btnenviar" name="btnenviar" onclick="enviar(document.getElementById('fucard'))">Activar</button> 
 				</div>

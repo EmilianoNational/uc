@@ -37,7 +37,11 @@ if (isset($_POST['t']) || isset($_GET['t'])) {
         <span style="padding-left: 20px;">Asistencia Vial</span>
         <i class="fa fa-circle"></i>
     </a>
+<<<<<<<< HEAD:code/menu-main.php
     <a class="menu-item" id="nav-settings" href="./vt2.aspx?t=<?=$sTarjetaEncriptada?>">
+========
+    <a class="menu-item" id="nav-settings" href="vt2.aspx">
+>>>>>>>> 8392785 (Commit con git):code/menu-main.html
         <img src="../assets/poliza.png" alt="Consulta de póliza" width="15" height="15" style="margin-left: 20px;">
         <span style="padding-left: 20px;">Consulta tu Póliza</span>
         <i class="fa fa-circle"></i>

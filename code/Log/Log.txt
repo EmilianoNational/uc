@@ -3,3 +3,24 @@
 20140318|104227|Could not find stored procedure 'spValidaTarjeta'.
 20140318|105006|No se puede encontrar la tabla 0.
 20140318|110058|No se puede encontrar la tabla 0.
+20231121|152855|ERR:DESC:
+20231127|092236|ERR:DESC:
+20231127|093237|ERR:DESC:
+20231127|093522|ERR:DESC:
+20231127|101957|ERR:DESC:
+20231127|102138|ERR:DESC:
+20231128|084128|ERR:DESC:
+20231128|084202|ERR:DESC:
+20231128|155019|ERR:DESC:
+20231128|155050|ERR:DESC:
+20231129|090906|Conversion from type 'DBNull' to type 'String' is not valid.
+20231129|090922|Conversion from type 'DBNull' to type 'String' is not valid.
+20231129|090923|Conversion from type 'DBNull' to type 'String' is not valid.
+20231129|091003|Conversion from type 'DBNull' to type 'String' is not valid.
+20231129|091011|Conversion from type 'DBNull' to type 'String' is not valid.
+20231129|091107|Conversion from type 'DBNull' to type 'String' is not valid.
+20231129|091208|Conversion from type 'DBNull' to type 'String' is not valid.
+20231129|091232|Conversion from type 'DBNull' to type 'String' is not valid.
+20231129|091355|Conversion from type 'DBNull' to type 'String' is not valid.
+20231129|091551|Conversion from type 'DBNull' to type 'String' is not valid.
+20231129|091726|Conversion from type 'DBNull' to type 'String' is not valid.

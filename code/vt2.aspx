@@ -28,7 +28,11 @@
 
 				<div class="page-title page-title-large" style="display: flex; justify-content: space-between; align-items: center">
 					<div>
+<<<<<<< HEAD
 						<a href="#" id="logoLink">
+=======
+						<a href="./index.php?t=<%=Request.QueryString("t")%>" id="logoLink">
+>>>>>>> 8392785 (Commit con git)
 							<img src="../assets/nationalAzul.png" alt="National Unity logo" width="107" height="74">
 						</a>
 					</div>
@@ -145,7 +149,11 @@
 																			<br>
 																			<br>
 																			<br>
+<<<<<<< HEAD
 																			<a href="activa.asp" class="button mt-4"> 
+=======
+																			<a href="activa.asp?t=<%=Request.QueryString("t")%>" class="button mt-4"> 
+>>>>>>> 8392785 (Commit con git)
 																				<button type="button" class="btn btn-m btn-full mb-3 rounded-xs bg-mint-dark">
 																					ACTIVAR EN LíNEA
 																				</button>
@@ -204,5 +212,6 @@
 			window.history.back(); // Volver a la página anterior
 		});
 	</script>
+	 
 </body>
 </html>
