@@ -187,6 +187,8 @@
                   Descargar Póliza  <%=ico%>  
                 </button>
 
+
+
                 <button class="btn bg-highlight rounded-3" onclick="$ ('#sendticket').modal ('show');">
                   Envio de Póliza
                 </button>
@@ -262,7 +264,9 @@
                           <input type="text" id="papel" name="papel" value="" style="display:none">
                         </div>
                       </div>
-                    </div>-->
+                    </div>
+                    <%=smail%>
+                    -->
 
                     <div class="col-sm-12" style="margin-top: 25px;">
                       <div>
@@ -277,6 +281,10 @@
                             </div>
 
                           </button>
+
+                          <input type="text" id="poliza_number" name="poliza_number" value="<%=ico%>" style="display:none">
+
+                          <input type="text" id="folio" name="folio" value="<%=iFolioUnity%>" style="display:none">
                         </div>
                       </div>
                     </div>
@@ -354,8 +362,6 @@ $("#email").on("click", function () {
 
   var expresion = /\w+@\w+\.+[a-z]/;
 
-  console.log('click')
-
   if (!expresion.test(correo)) {
     //sweetalert para mostrar el mensaje de error
     Swal.fire({
@@ -369,9 +375,10 @@ $("#email").on("click", function () {
     $.ajax({
       type: "POST",
       url: "php/Correo.php",
-      data: $("#poliza_number").serialize() + "&" + $("#emailtext").serialize() + "&" + $("#papel").serialize(),
+      data: $("#poliza_number").serialize() + "&" + $("#emailtext").serialize() + "&" + $("#folio").serialize(),
       success: function (data) {
         //imprimir respuesta de Correo.php en consola
+        console.log('hola')
         Swal.fire({
           title: "Correo enviado",
           text: "El correo ha sido enviado correctamente",
@@ -383,6 +390,8 @@ $("#email").on("click", function () {
 });
 
 </script>
+<link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bootstrap-4/bootstrap-4.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
 <script type="text/javascript" src="scripts/custom.js"></script>
 </body>

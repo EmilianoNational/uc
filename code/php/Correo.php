@@ -2,12 +2,10 @@
 require '../../vendor/autoload.php';
 // require('fecha_español.php');
 date_default_timezone_set('UTC');
-date_default_timezone_set('America/Monterrey');
+date_default_timezone_set('America/Monterrey'); 
 
 function enviargmail($subject, $para, $cc, $bcc, $message)
 {
-
-
 
   $smtpServer = "smtp.gmail.com";
   $smtpPort = 465;
@@ -44,18 +42,26 @@ function enviargmail($subject, $para, $cc, $bcc, $message)
 
   $Poliza = $_POST['poliza_number'];
 
-  $P = $_POST['papel'];
+  $P = $_POST['folio'];
 
-
+  $context = stream_context_create([
+      "ssl" => [
+          "verify_peer" => false,
+          "verify_peer_name" => false,
+      ],
+  ]);
 
   // Ruta de la URL del archivo PDF
-  $attachmentUrl = 'https://www.nuicservices.com/pdfphp/pdfauto_test.php?f=' . $Poliza . '&p='. $P .'';
+  //$attachmentUrl = 'https://www.nuicservices.com/pdfphp/pdfauto_test.php?f=' . $Poliza . '&p='. $P .'';
+  $attachmentUrl = 'https://www.nationalunity.com/pdfphp/pdfautosUC.php?p=euc&f='. $P .'';
+  // https://www.nationalunity.com/pdfphp/pdfautosUC.php?p=euc&f=354230620
 
   // Descarga el archivo desde la URL
-  $fileContent = file_get_contents($attachmentUrl);
+  //$fileContent = file_get_contents($attachmentUrl);
+  $fileContent = file_get_contents("https://www.nuicservices.com", false, $context);
 
   // Crea un objeto Swift_Attachment con el contenido descargado y especifica el nombre del archivo
-  $attachment = new \Swift_Attachment($fileContent, 'Poliza-'. $Poliza .'.pdf', 'application/pdf');
+  $attachment = new \Swift_Attachment($fileContent, 'Poliza-'. $P .'.pdf', 'application/pdf');
 
   // Adjunta el archivo PDF al correo
   $messageObj->attach($attachment);
@@ -79,11 +85,11 @@ $var3 = $hoy;
 $var4 = $fecha;
 $Poliza = $_POST['poliza_number'];
 
-$P = $_POST['papel'];
+$P = $_POST['folio'];
 
 
 // Uso de la función enviargmail
-$subject = 'Poliza-' . $Poliza . '';
+$subject = 'Poliza-' . $P . '';
 $para = $_POST['emailtext'];
 $cc = $_POST['emailtext'];
 $bcc = $_POST['emailtext'];
@@ -232,7 +238,7 @@ style="width:100%;font-family:arial, helvetica neue, helvetica, sans-serif;-webk
                                             <!-- Info card end -->
                                             <div>
                                               <p>Si la póliza no se visualiza de manera correcta. Presiona, el boton para descargar el documento: </p>
-                                              <a class="my-button" href="https://www.nuicservices.com/pdfphp/pdfauto_test.php?f=' . $Poliza . '&p='. $P .'" target="_blank" style="color: white; text-decoration: none;">Descargar Póliza</a>
+                                              <a class="my-button" href="https://www.nationalunity.com/pdfphp/pdfautosUC.php?p=euc&f='. $P .'" target="_blank" style="color: white; text-decoration: none;">Descargar Póliza</a>
                                             </div>
                                           </td>
                                           
